@@ -47,22 +47,24 @@ function generatePassword(){
   if (upperMessage && lowerMessage && numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower).concat(number).concat(symbol);
 
-  } else if (upperMessage) {
-    randomPassword = randomPassword.concat(upper)
-
-  } else if (lowerMessage) {
-    randomPassword = randomPassword.concat(lower)
-
-  } else if (numberMessage) {
-    randomPassword = randomPassword.concat(number)
-
-  } else if (symbolMessage) {
-    randomPassword = randomPassword.concat(symbol)
-
-  } else if (lowerMessage && upperMessage) {
+  } else if (upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower);
 
-  } 
+  } else if (upperMessage && !lowerMessage && numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(number);
+
+  } else if (upperMessage && !lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(symbol);
+
+  } else if (!upperMessage && lowerMessage && numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(lower).concat(number);
+
+  } else if (!upperMessage && lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(lower).concat(symbol);
+
+  } else {
+    randomPassword = randomPassword.concat(number).concat(symbol);
+  }  
 
   var securePassword = " ";
 
