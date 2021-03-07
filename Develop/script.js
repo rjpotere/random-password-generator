@@ -25,34 +25,44 @@ function generatePassword(){
 
   } else if (length >= 8 && length <= 128) {
     // run next step
+    upperMessage;
 
   } else {
     window.alert("Please input a number between 8 and 128.")
     return;
   }
 
-  var upperMessage = window.confirm("Would you like to use uppercase letters?");
-  var lowerMessage = window.confirm("Would you like to use lowercase letters?");
-  var numberMessage = window.confirm("Would you like to use numbers?");
-  var symbolMessage = window.confirm("Would you like to use special characters?");
+  var upperMessage = window.confirm("Would you like to use uppercase letters? If no, select cancel.");
+  var lowerMessage = window.confirm("Would you like to use lowercase letters? If no, select cancel.");
+  var numberMessage = window.confirm("Would you like to use numbers? If no, select cancel.");
+  var symbolMessage = window.confirm("Would you like to use special characters? If no, select cancel.");
+
+  if (!upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
+    window.alert("You must select at least one of the options.")
+    return;
+  }
 
   var randomPassword = [];
 
-  if (upperMessage) {
-    randomPassword = randomPassword.concat(upper);
-  }
+  if (upperMessage && lowerMessage && numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(lower).concat(number).concat(symbol);
 
-  if (lowerMessage) {
-    randomPassword = randomPassword.concat(lower);
-  }
+  } else if (upperMessage) {
+    randomPassword = randomPassword.concat(upper)
 
-  if (numberMessage) {
-    randomPassword = randomPassword.concat(number);
-  }
+  } else if (lowerMessage) {
+    randomPassword = randomPassword.concat(lower)
 
-  if (symbolMessage) {
-    randomPassword = randomPassword.concat(symbol);
-  }
+  } else if (numberMessage) {
+    randomPassword = randomPassword.concat(number)
+
+  } else if (symbolMessage) {
+    randomPassword = randomPassword.concat(symbol)
+
+  } else if (lowerMessage && upperMessage) {
+    randomPassword = randomPassword.concat(upper).concat(lower);
+
+  } 
 
   var securePassword = " ";
 
