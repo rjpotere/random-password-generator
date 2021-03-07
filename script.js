@@ -47,6 +47,9 @@ function generatePassword(){
   if (upperMessage && lowerMessage && numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower).concat(number).concat(symbol);
 
+  } else if (upperMessage && lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(lower).concat(symbol);
+  
   } else if (upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower);
 
@@ -54,15 +57,18 @@ function generatePassword(){
     randomPassword = randomPassword.concat(upper).concat(number);
 
   } else if (upperMessage && !lowerMessage && !numberMessage && symbolMessage) {
-    randomPassword = randomPassword.concat(upper).concat(symbol);
-
+    randomPassword = randomPassword.concat(upper).concat(symbol); 
+ 
+  }  else if (!upperMessage && lowerMessage && numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(lower).concat(number).concat(symbol);
+  
   } else if (!upperMessage && lowerMessage && numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(lower).concat(number);
 
   } else if (!upperMessage && lowerMessage && !numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(lower).concat(symbol);
 
-  } else {
+  } else if (!upperMessage && !lowerMessage && numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(number).concat(symbol);
   }  
 
