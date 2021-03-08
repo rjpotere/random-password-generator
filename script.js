@@ -21,7 +21,7 @@ function generatePassword(){
   var length = window.prompt("Choose a password length of at least 8 characters and no more than 128 characters.");
 
   if (length == null) {
-    return;
+    return randomPassword = "Your Secure Password";
 
   } else if (length >= 8 && length <= 128) {
     // run next step
@@ -29,7 +29,7 @@ function generatePassword(){
 
   } else {
     window.alert("Please input a number between 8 and 128.")
-    return;
+    return randomPassword = "Your Secure Password";
   }
 
   var upperMessage = window.confirm("Would you like to use uppercase letters? If no, select cancel.");
@@ -37,9 +37,11 @@ function generatePassword(){
   var numberMessage = window.confirm("Would you like to use numbers? If no, select cancel.");
   var symbolMessage = window.confirm("Would you like to use special characters? If no, select cancel.");
 
+  //selection criteria for password variable conditions 
+
   if (!upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
     window.alert("You must select at least one of the options.")
-    return ;
+    return randomPassword = "Your Secure Password";
   }
 
   var randomPassword = [];
@@ -49,6 +51,9 @@ function generatePassword(){
 
   } else if (upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper);
+  
+  } else if (upperMessage && lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(lower).concat(symbol);
   
   } else if (upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower);
@@ -79,13 +84,16 @@ function generatePassword(){
   
   } 
 
+  /* for loop to randomly select password based on concating variables into the
+  randomPassword array and then creates a random password in the securePassword variable.*/ 
+
   var securePassword = " ";
 
   for (i=0; i < length; i++) {
     securePassword = securePassword + randomPassword [Math.floor(Math.random() * randomPassword.length)];
   }
 
-
+  // retuen secure password so variable password can display the output on the screen.
  return securePassword;
 };
 
