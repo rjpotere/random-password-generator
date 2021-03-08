@@ -39,7 +39,7 @@ function generatePassword(){
 
   if (!upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
     window.alert("You must select at least one of the options.")
-    return;
+    return ;
   }
 
   var randomPassword = [];
@@ -47,30 +47,37 @@ function generatePassword(){
   if (upperMessage && lowerMessage && numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower).concat(number).concat(symbol);
 
-  } else if (upperMessage && lowerMessage && !numberMessage && symbolMessage) {
-    randomPassword = randomPassword.concat(upper).concat(lower).concat(symbol);
+  } else if (upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(upper);
   
   } else if (upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower);
-
+  
   } else if (upperMessage && !lowerMessage && numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(number);
 
   } else if (upperMessage && !lowerMessage && !numberMessage && symbolMessage) {
-    randomPassword = randomPassword.concat(upper).concat(symbol); 
- 
-  }  else if (!upperMessage && lowerMessage && numberMessage && symbolMessage) {
-    randomPassword = randomPassword.concat(lower).concat(number).concat(symbol);
-  
-  } else if (!upperMessage && lowerMessage && numberMessage && !symbolMessage) {
-    randomPassword = randomPassword.concat(lower).concat(number);
+    randomPassword = randomPassword.concat(upper).concat(symbol);
 
+  } else if (!upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(lower); 
+ 
+  }  else if (!upperMessage && lowerMessage && numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(lower).concat(number);
+  
   } else if (!upperMessage && lowerMessage && !numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(lower).concat(symbol);
 
+  } else if (!upperMessage && !lowerMessage && numberMessage && !symbolMessage) {
+    randomPassword = randomPassword.concat(number);
+
   } else if (!upperMessage && !lowerMessage && numberMessage && symbolMessage) {
     randomPassword = randomPassword.concat(number).concat(symbol);
-  }  
+
+  } else if (!upperMessage && !lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(symbol);
+  
+  } 
 
   var securePassword = " ";
 
