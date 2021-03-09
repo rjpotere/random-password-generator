@@ -14,10 +14,11 @@ When the generate password button is clicked, the user will see the following pr
 
 Once the user enters the length of their password, they are asked a series of questions on password criteria.
 
-![photo](assets/images/Screen Shot uppercase.png)
-![photo](assets/images/Screen Shot lower.png)
-![photo](assets/images/Screen Shot number.png)
-![photo](assets/images/Screen Shot special chara.png)
-![photo](assets/images/Screen Shot password created.png)
+![photo](assets/images/upper)
+![photo](assets/images/lowercase.png)
+![photo](assets/images/number.png)
+![photo](assets/images/special-chara.png)
+![photo](assets/images/password-created.png)
+
 
 
