@@ -52,11 +52,11 @@ function generatePassword(){
   } else if (upperMessage && !lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper);
   
-  } else if (upperMessage && lowerMessage && !numberMessage && symbolMessage) {
-    randomPassword = randomPassword.concat(upper).concat(lower).concat(symbol);
-  
   } else if (upperMessage && lowerMessage && !numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(lower);
+    
+  } else if (upperMessage && lowerMessage && !numberMessage && symbolMessage) {
+    randomPassword = randomPassword.concat(upper).concat(lower).concat(symbol);
   
   } else if (upperMessage && !lowerMessage && numberMessage && !symbolMessage) {
     randomPassword = randomPassword.concat(upper).concat(number);
